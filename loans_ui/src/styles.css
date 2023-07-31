@@ -1,0 +1,22 @@
+/* You can add global styles to this file, and also import other style files */
+
+
+:root {
+    --purple: #2f2fa2;
+    --white: #ffffff;
+} 
+html, body {
+    height: 100%;
+}
+body { 
+    margin: 0; 
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+.bg-purple{
+    background-color: var(--purple);
+    color:var(--white)
+}

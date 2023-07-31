@@ -1,0 +1,48 @@
+<h4 class="py-2 mx-auto w-50">View Details</h4>
+<table
+  class="table table-striped table-bordered border border-3 rounded-5 w-50 mx-auto"
+>
+  <tr>
+    <th>Firstname</th>
+    <td>{{ customerDetails.firstName }}</td>
+  </tr>
+
+  <tr>
+    <th>Lastname</th>
+    <td>{{ customerDetails.lastName }}</td>
+  </tr>
+  <tr>
+    <th>Email</th>
+    <td>{{ customerDetails.emailAddress }}</td>
+  </tr>
+  <tr>
+    <th>Phone</th>
+    <td>{{ customerDetails.phoneNumber }}</td>
+  </tr>
+  <tr>
+    <th>DOB</th>
+    <td>{{ customerDetails.dob }}</td>
+  </tr>
+  <tr>
+    <th>Department</th>
+    <td>{{ customerDetails.department }}</td>
+  </tr>
+  <button
+    class="btn d-flex align-content-end"
+    [routerLink]="['../../']"
+    title="Go Back"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="22"
+      height="22"
+      fill="currentColor"
+      class="bi bi-skip-backward-circle-fill"
+      viewBox="0 0 16 16"
+    >
+      <path
+        d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.79-2.907L8.5 7.028V5.5a.5.5 0 0 0-.79-.407L5 7.028V5.5a.5.5 0 0 0-1 0v5a.5.5 0 0 0 1 0V8.972l2.71 1.935a.5.5 0 0 0 .79-.407V8.972l2.71 1.935A.5.5 0 0 0 12 10.5v-5a.5.5 0 0 0-.79-.407z"
+      />
+    </svg>
+  </button>
+</table>

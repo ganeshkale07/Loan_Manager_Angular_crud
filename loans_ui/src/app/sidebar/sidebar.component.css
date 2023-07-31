@@ -1,0 +1,50 @@
+.example-container {
+  width: 100%;
+  /* height: 90vh; */
+  border: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.example-sidenav-content {
+  height: 100%;
+}
+
+.side-nav-item{
+    padding:15px 0 10px 0 ;
+    border-bottom: 1px solid black;
+    text-decoration: none;
+    color: black;
+    display: block;
+}
+
+.side-nav-item svg {
+  margin-right: 3px;
+}
+
+.example-sidenav {
+  padding: 10px 25px;
+}
+.example-sidenav::after{
+  content: '';
+  display: table-cell;
+}
+
+.example-sidenav-content .sidenav-toggle-btn{
+    position: absolute;
+    top: 15px;
+    left: 0px;
+}
+
+.active{
+  color:#3232c8;
+}
+
+mat-drawer-container {
+  /* height: calc(80% - 5px); */
+  height: 90% ;
+}
+
+.disable{
+  pointer-events: none;
+  color:#aba2a2;
+}
+
