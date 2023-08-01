@@ -10,13 +10,17 @@ router.get("/list", function (req, res, next) {
   customersModel
     .find()
     .then((customerListResponse) => {
+      console.log("Response from server" , customerListResponse);
       let to = pageNumber * pageSize;
       let from = to - pageSize;
-      let filteredResult = customerListResponse.slice(
-        parseInt(from) + 1,
-        to === 1 ? parseInt(to) : parseInt(to) + 1
-      );
-      console.log(from, to, filteredResult);
+      let filteredResult = customerListResponse;
+      if(from !== 0){
+        filteredResult = customerListResponse.slice(
+          parseInt(from) + 1,
+          to === 1 ? parseInt(to) : parseInt(to) + 1
+        );
+      }
+      console.log(from, to);
       res.send({
         status: 200,
         recordCount: customerListResponse.length,

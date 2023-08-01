@@ -10,9 +10,9 @@ var cors = require("cors");
 var app = express();
 //-> established connection
 mongoose
-  .connect("mongodb://localhost:27017/LoanManager")
+  .connect("mongodb://127.0.0.1:27017/LoanManager")
   .then((res) => console.log("Connected to mongoDB "))
-  .catch((error) => console.log(error));
+  .catch((error) => console.log("eroooor",error));
 
 //To get body from request we have to convert into json first
 app.use(express.json());

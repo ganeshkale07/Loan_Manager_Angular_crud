@@ -26,8 +26,9 @@ export class ListCustomerComponent implements OnInit {
   getAllCustomers(pgNumber:number,pgSize:number){
     this.customerService.getAllCustomers(pgNumber,pgSize).subscribe( (data :any) => {
       this.customerResult =  data;
+      //actual list on UI
       this.customerList = this.customerResult.results;
-      this.maxPages = this.customerResult.recordCount/ this.pageSize;
+      this.maxPages = this.customerResult.recordCount / this.pageSize;
       console.log(this.customerList)
     })
   }
