@@ -21,6 +21,7 @@ export class EditCustomerComponent {
     department : '',
     phoneNumber : ''
   };
+  updateMsg: boolean = false;
 
   // customerEditForm !: FormGroup;
   // firstName !: FormControl ;
@@ -80,7 +81,11 @@ export class EditCustomerComponent {
     onSubmit(form :NgForm){
       this.customerService.updateCustomers(this.customerDetails._id,form.value).subscribe((data : any) =>  {
         if(data.status == 200){
-          alert(data.message);
+          //alert(data.message);
+          this.updateMsg = true;
+          setTimeout(() => {
+          this.updateMsg = false;
+          }, 1500);
         }else{
           alert(data.message)
         }

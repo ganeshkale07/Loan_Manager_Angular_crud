@@ -1,7 +1,11 @@
 <form class="w-50 mx-auto" [formGroup]="customerCreateForm" autocomplete="on">
-  <div class="alert alert-success" *ngIf="successMsg">
-    <strong>Success!</strong> New customer succesfully created :)
-  </div>
+  <app-alert-message>
+    <div class="alert alert-success add-customer" *ngIf="successMsg">
+      <strong>Success!</strong> New customer succesfully created :)
+    </div>
+  </app-alert-message>
+
+
   <h4 class="py-2">Add Customer</h4>
   <div class="row">
     <div class="col">

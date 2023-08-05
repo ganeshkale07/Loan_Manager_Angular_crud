@@ -14,6 +14,7 @@ export class ListCustomerComponent implements OnInit {
   currentPage : number = 1;
   pageSize = 4;
   maxPages : number = 0;
+  deletedCustomer: boolean= false;
   constructor(private customerService : CustomersService){
 
 
@@ -35,7 +36,11 @@ export class ListCustomerComponent implements OnInit {
   onDemandDeletCustomer(id:string){
     this.customerService.deleteCustomers(id).subscribe((data:any) => {
       if(data.status == 200){
-        alert("deleted successfully");
+        //alert("deleted successfully");
+        this.deletedCustomer = true;
+        setTimeout(() => {
+          this.deletedCustomer = false;
+        }, 1500);
         this.getAllCustomers(this.currentPage,this.pageSize);
       }else{
         alert("delet failed")

@@ -1,4 +1,9 @@
 <form class="mx-auto w-50" #customerEditForm="ngForm" autocomplete="on">
+  <app-alert-message>
+    <div class="alert alert-success update-customer" *ngIf="updateMsg">
+      <strong>Success!</strong> New customer succesfully Updated :)
+    </div>
+  </app-alert-message>
   <h4 class="py-2">Edit Details</h4>
   <div class="row">
     <div class="col">
