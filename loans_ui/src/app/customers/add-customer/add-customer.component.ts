@@ -15,6 +15,7 @@ export class AddCustomerComponent implements OnInit{
   dob !: FormControl ;
   department !: FormControl ;
   phone !: FormControl ;
+  successMsg: boolean = false;
 
   constructor(private fb : FormBuilder, private customerService:CustomersService){
 
@@ -27,12 +28,12 @@ export class AddCustomerComponent implements OnInit{
 
 
   customerFormModel(){
-    this.firstName = new FormControl('');
-    this.email = new FormControl('');
-    this.lastName = new FormControl('');
-    this.dob = new FormControl('');
-    this.department = new FormControl('');
-    this.phone = new FormControl('');
+    this.firstName = new FormControl('',[Validators.required,Validators.pattern("^[A-Za-z]+$")]);
+    this.email = new FormControl('',[Validators.required,Validators.pattern("[^ @]*@[^ @]*")]);
+    this.lastName = new FormControl('',[Validators.required,Validators.pattern("^[A-Za-z]+$")]);
+    this.dob = new FormControl('',Validators.required);
+    this.department = new FormControl('',[Validators.required,Validators.pattern("^[A-Za-z]+$")]);
+    this.phone = new FormControl('',[Validators.required,Validators.maxLength(10),Validators.pattern("^[0-9]{10}$")]);
   }
 
   customerForm(){
@@ -50,8 +51,12 @@ export class AddCustomerComponent implements OnInit{
   onSubmit(form:FormGroup){
     this.customerService.createCustomers(form.value).subscribe((response: any) => {
       console.log(form.value)
-      alert(response.message);
+      //alert(response.message);
+      this.successMsg = true;
       this.customerCreateForm.reset();
+      setTimeout(() =>{
+        this.successMsg = false;
+      }, 1500)
     });;
   }
 

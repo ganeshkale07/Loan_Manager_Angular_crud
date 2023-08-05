@@ -44,7 +44,7 @@ export class EditCustomerComponent {
         firstName : this.customerDetails.firstName,
         lastName : this.customerDetails.lastName,
         emailAddress: this.customerDetails.emailAddress,
-        dob : this.customerDetails.dob,
+        dob : new Date(this.customerDetails.dob).toDateString(),
         department : this.customerDetails.department,
         phoneNumber : this.customerDetails.phoneNumber
       };

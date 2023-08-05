@@ -5,22 +5,32 @@ var customersModel = require("../models/customers.model");
 
 /* GET users listing. */
 router.get("/list", function (req, res, next) {
-  let pageNumber = req.query.pageNumber;
-  let pageSize = req.query.pageSize;
+  let pageNumber = req.query.pageNumber;//1
+  let pageSize = req.query.pageSize;//4
   customersModel
     .find()
     .then((customerListResponse) => {
-      console.log("Response from server" , customerListResponse);
-      let to = pageNumber * pageSize;
-      let from = to - pageSize;
-      let filteredResult = customerListResponse;
-      if(from !== 0){
+      let to = pageNumber * pageSize;//8
+      let from = to - pageSize;//4
+      
+      console.log("to and from",from,to);
+      let filteredResult;
+      
+      if(from === 0){
         filteredResult = customerListResponse.slice(
-          parseInt(from) + 1,
+          parseInt(from),
+          parseInt(to)
+        );
+      }
+      else{
+        filteredResult = customerListResponse.slice(
+          parseInt(from) ,
           to === 1 ? parseInt(to) : parseInt(to) + 1
         );
       }
-      console.log(from, to);
+
+      console.log(filteredResult);
+      
       res.send({
         status: 200,
         recordCount: customerListResponse.length,

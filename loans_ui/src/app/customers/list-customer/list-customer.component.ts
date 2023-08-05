@@ -28,8 +28,7 @@ export class ListCustomerComponent implements OnInit {
       this.customerResult =  data;
       //actual list on UI
       this.customerList = this.customerResult.results;
-      this.maxPages = this.customerResult.recordCount / this.pageSize;
-      console.log(this.customerList)
+      this.maxPages = Math.ceil(this.customerResult.recordCount / this.pageSize);
     })
   }
 

@@ -9,7 +9,7 @@
 </div>
 
 <div class="table-content mt-4 bg-white p-4">
-  <div
+  <!-- <div
     class="table-content-top btn-toolbar justify-content-between pb-4 pt-2"
     role="toolbar"
     aria-label="Toolbar with button groups"
@@ -36,7 +36,7 @@
           d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"
         />
       </svg>
-    </div>
+    </div> -->
 
     <!-- sorting Icons
       <div class="btn-group btn-group-sm" role="group">
@@ -45,7 +45,7 @@
         <button type="button" class="btn btn-outline-secondary">3</button>
         <button type="button" class="btn btn-outline-secondary">4</button>
       </div> -->
-  </div>
+  <!-- </div> -->
 
   <table class="table-content-middle table table-hover pb-5">
     <thead>
@@ -157,16 +157,16 @@
           <li class="page-item" (click)="goToSpecificPage(1)">
             <a class="page-link" [ngClass]="{ infocus: currentPage == 1 }">1</a>
           </li>
-          <li class="page-item" (click)="goToSpecificPage(2)">
+          <li class="page-item" (click)="goToSpecificPage(2)" *ngIf="maxPages > 1">
             <a class="page-link" [ngClass]="{ infocus: currentPage == 2 }">2</a>
           </li>
-          <li class="page-item" (click)="goToSpecificPage(3)">
+          <li class="page-item" (click)="goToSpecificPage(3)" *ngIf="maxPages > 2">
             <a class="page-link" [ngClass]="{ infocus: currentPage == 3 }">3</a>
           </li>
           <li
             class="page-item"
             (click)="goToSpecificPage(99)"
-            *ngIf="currentPage <= maxPages"
+            *ngIf="maxPages > 3"
           >
             <a class="page-link" [ngClass]="{ infocus: currentPage > 3 }"
               >Next</a
